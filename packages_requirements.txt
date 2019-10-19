@@ -1,0 +1,16 @@
+php
+php-sqlite
+python
+ipset
+openssh
+iptables
+ebtables
+dnsmasq
+haveged
+v2ray
+unbound
+automake
+autoconf
+gcc
+ethtool
+make

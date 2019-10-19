@@ -1,0 +1,6 @@
+[submodule "gaplink-core"]
+	path = gaplink-core
+	url = https://github.com/GaplinkGroup/gaplink-core.git
+[submodule "gaplink-ui"]
+	path = gaplink-ui
+	url = https://github.com/GaplinkGroup/gaplink-ui.git
