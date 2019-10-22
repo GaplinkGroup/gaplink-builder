@@ -14,3 +14,4 @@ autoconf
 gcc
 ethtool
 make
+arch-install-scripts
