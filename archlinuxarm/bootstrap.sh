@@ -17,6 +17,7 @@ fi
 /bin/cp -f $SOURCE_ROOT/etc/pacman.d/mirrorlist /etc/pacman.d/
 
 # install dependency
+pacman -Syy
 pacman -S --noconfirm - < packages_requirements.txt
 if [ $? -ne 0 ]
 then
