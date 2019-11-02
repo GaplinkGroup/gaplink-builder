@@ -32,7 +32,7 @@ fi
 /bin/rm -f /etc/systemd/network/*
 
 chown -R root.root $SOURCE_ROOT/etc
-/bin/cp -rf $SOURCE_ROOT/etc/* /etc/
+/bin/cp -d -rf $SOURCE_ROOT/etc/* /etc/
 
 # install gaplink-ui
 /bin/rm -rf /opt/gaplink-ui
