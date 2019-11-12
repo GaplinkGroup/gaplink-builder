@@ -17,6 +17,7 @@ fi
 /bin/cp -f $SOURCE_ROOT/etc/pacman.d/mirrorlist /etc/pacman.d/
 
 # install dependency
+pacman -Syy
 pacman -S --noconfirm - < packages_requirements.txt
 if [ $? -ne 0 ]
 then
@@ -32,7 +33,7 @@ fi
 /bin/rm -f /etc/systemd/network/*
 
 chown -R root.root $SOURCE_ROOT/etc
-/bin/cp -rf $SOURCE_ROOT/etc/* /etc/
+/bin/cp -d -rf $SOURCE_ROOT/etc/* /etc/
 
 # install gaplink-ui
 /bin/rm -rf /opt/gaplink-ui
