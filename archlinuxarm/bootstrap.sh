@@ -1,5 +1,15 @@
 #!/usr/bin/sh
 
+SH_COM=$(cd "${0%/*}";pwd)/$(basename $0)
+readlink $SH_COM >/dev/null 2>&1
+if [ $? -eq 0 ];then
+    R_SH_COM=$(readlink $SH_COM)
+    BASE_DIR=${R_SH_COM%/*}
+else
+    BASE_DIR=${SH_COM%/*}
+fi
+cd $BASE_DIR
+
 SOURCE_ROOT=../gaplink-core/root
 BOOTSTRAP_ROOT=../
 GAPLINK_UI=../gaplink-ui
@@ -10,6 +20,16 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit 1
 fi
+
+/usr/bin/curl -L -o gaplink-core.tar.gz https://github.com/GaplinkGroup/gaplink-core/archive/master.tar.gz
+/usr/bin/curl -L -o gaplink-ui.tar.gz https://github.com/GaplinkGroup/gaplink-ui/archive/master.tar.gz
+/usr/bin/tar xf gaplink-core.tar.gz
+/usr/bin/tar xf gaplink-ui.tar.gz
+/bin/rm -rf ../gaplink-core
+/bin/rm -rf ../gaplink-ui
+/bin/mv gaplink-core-master ../gaplink-core
+/bin/mv gaplink-ui-master ../gaplink-ui
+
 
 # TODO: check pacman-key --init
 
