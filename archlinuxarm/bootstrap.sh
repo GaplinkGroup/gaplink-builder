@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 SH_COM=$(cd "${0%/*}";pwd)/$(basename $0)
 readlink $SH_COM >/dev/null 2>&1
@@ -38,6 +38,7 @@ fi
 
 # install dependency
 pacman -Syy
+yes | pacman -S iptables-nft
 pacman -S --noconfirm - < packages_requirements.txt
 if [ $? -ne 0 ]
 then

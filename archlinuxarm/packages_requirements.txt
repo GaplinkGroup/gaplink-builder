@@ -3,7 +3,6 @@ php-sqlite
 python
 ipset
 openssh
-iptables
 ebtables
 dnsmasq
 haveged
