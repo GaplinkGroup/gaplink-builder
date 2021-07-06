@@ -61,18 +61,8 @@ mkdir -p /opt/gaplink-ui
 /bin/cp -r $GAPLINK_UI/* /opt/gaplink-ui/
 bash $BOOTSTRAP_ROOT/scripts/enable_pdosqlite.sh
 
-# install ntpclient
-tar xvf $BOOTSTRAP_ROOT/ntpclient_2015_365.tar.gz
-pushd ntpclient-2015
-make
-/bin/cp ntpclient /usr/local/bin/
-chmod a+x /usr/local/bin/ntpclient
-popd
-rm -rf ntpclient-2015
-
 # enable service
 systemctl enable systemd-networkd-wait-online.service
-systemctl enable ntpclient.timer
 systemctl enable ipset.service
 systemctl enable sshd.service
 systemctl enable iptables.service
